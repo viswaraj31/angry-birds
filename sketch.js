@@ -6,8 +6,10 @@ var engine, world;
 var box1,box2,box3,box4,box5;
 var pig1,pig2;
 var bird;
-var log1,log2,log3,log4,log5,log6,log7;
+var ground,ground1;
+var log1,log2,log3,log4,log5,log6,log7,log8;
 var backgroundImage;
+var sling;
 
 function preload(){
     backgroundImage = loadImage("sprites/bg.png")
@@ -19,8 +21,8 @@ function setup(){
     world = engine.world;
 
     
-    ground = new Ground(600,height,1200,20)
-
+    ground = new Ground(600,height,1200,20);
+    ground1 = new Ground(150,300,300,200);
     box1 = new Box(700,370,70,70);
     box2 = new Box(920,370,70,70);
     box3 = new Box(700,295,70,70);
@@ -35,7 +37,9 @@ function setup(){
     log5 = new Log(700,160,100,PI);
     log6 = new Log(920,160,100,PI);
     log7 = new Log(810,100,280,PI/2);
+    log8 = new Log(120,120,90,PI/2)
     bird = new Bird(100,100);
+    sling = new SlingShot(bird.body,log8.body)
 
 }
 
@@ -45,22 +49,29 @@ function draw(){
     console.log(box2.body.position.x);
     console.log(box2.body.position.y);
     console.log(box2.body.angle);
+    
+    ground.display();
+    ground1.display();
+
     box1.display();
     box2.display();
-    ground.display();
-    pig1.display();
-    log1.display();
     box3.display();
     box4.display();
-    pig2.display();
-    log2.display();
     box5.display();
+
+    pig1.display();
+    pig2.display();
+
+    log1.display();
+    log2.display();
     log3.display();
     log4.display();
     log5.display();
     log6.display();
     log7.display();
+    log8.display();
+
     bird.display();
-    fill("white")
-    text(mouseX+','+mouseY,mouseX,mouseY)
+
+    sling.display();
 }
