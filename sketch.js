@@ -7,7 +7,7 @@ var box1,box2,box3,box4,box5;
 var pig1,pig2;
 var bird;
 var ground,ground1;
-var log1,log2,log3,log4,log5,log6,log7,log8;
+var log1,log2,log3,log4,log5,log6,log7;
 var backgroundImage;
 var sling;
 
@@ -37,9 +37,8 @@ function setup(){
     log5 = new Log(700,160,100,PI);
     log6 = new Log(920,160,100,PI);
     log7 = new Log(810,100,280,PI/2);
-    log8 = new Log(120,120,90,PI/2)
     bird = new Bird(100,100);
-    sling = new SlingShot(bird.body,log8.body)
+    sling = new SlingShot(bird.body,{x:200, y:100});
 
 }
 
@@ -69,9 +68,16 @@ function draw(){
     log5.display();
     log6.display();
     log7.display();
-    log8.display();
 
     bird.display();
 
     sling.display();
+}
+
+function mouseDragged(){
+   Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY});
+}
+
+function mouseReleased(){
+    sling.fly();
 }
