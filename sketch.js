@@ -22,7 +22,7 @@ function setup(){
 
     
     ground = new Ground(600,height,1200,20);
-    ground1 = new Ground(150,300,300,200);
+    ground1 = new Ground(150,310,300,160);
     box1 = new Box(700,370,70,70);
     box2 = new Box(920,370,70,70);
     box3 = new Box(700,295,70,70);
@@ -37,8 +37,8 @@ function setup(){
     log5 = new Log(700,160,100,PI);
     log6 = new Log(920,160,100,PI);
     log7 = new Log(810,100,280,PI/2);
-    bird = new Bird(100,100);
-    sling = new SlingShot(bird.body,{x:200, y:100});
+    bird = new Bird(230,60);
+    sling = new SlingShot(bird.body,{x:230, y:60});
 
 }
 
